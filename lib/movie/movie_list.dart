@@ -17,7 +17,10 @@ class MoveList extends StatefulWidget {
   _MoveListState createState() => _MoveListState();
 }
 
-class _MoveListState extends State<MoveList> {
+class _MoveListState extends State<MoveList> with AutomaticKeepAliveClientMixin{
+
+ 
+
   int page = 1;
 
   int pageSize = 10;
@@ -27,6 +30,7 @@ class _MoveListState extends State<MoveList> {
   var total;
 
   bool moreData = true;
+
 
   ScrollController _scrollController = new ScrollController();
 
@@ -118,6 +122,7 @@ class _MoveListState extends State<MoveList> {
                         padding: EdgeInsets.only(left: 10, top: 10, bottom: 10),
                         height: 200.0,
                         child: Column(
+                          
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -163,4 +168,8 @@ class _MoveListState extends State<MoveList> {
       islodingDone = true;
     });
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
